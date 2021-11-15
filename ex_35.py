@@ -1,19 +1,19 @@
 from sys import exit
 
 def gold_room():
-    print("This room is full of gold. How much do you take.")
+    print("This room is full of gold. How much do you take?")
     
     choice = input("> ")
-    if "0" in choice or "1" in choice:
-        how_much = int(choice)
-    else:
-        dead("Man, learn to type a number")
-        
+    how_much = int(choice)
+
     if how_much < 50:
        print("Nice, you're not gready you win!")
        exit(0)
-    else:
+    elif how_much > 50:
         dead("You greedy bastard!")
+    else:
+        dead("Man, learn to type a number")
+
     
 def bear_room():
     print("There is a bear here.")
@@ -43,11 +43,11 @@ def cthulhu_room():
     print("He, it, whatever stares at you and you go insane.")
     print("Do you flee for your life or eat your head?")
     
-    next = raw_input("> ")
+    choice = input("> ")
     
-    if "flee" in next:
+    if "flee" in choice:
         start()
-    elif "head" in next:
+    elif "head" in choice:
         dead("Well that was tasty!")
     else:
         cthulhu_room()
